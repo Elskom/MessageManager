@@ -19,6 +19,7 @@ namespace Elskom.Generic.Libs
         /// <param name="text">The text on the messagebox.</param>
         /// <param name="caption">The title of the messagebox.</param>
         /// <param name="notifyIcon">The notification icon to use if the program is set to use Notifications instead of message boxes.</param>
+        /// <param name="useNotifications">Indicates if this function should show notifications using the input notification icon.</param>
         /// <returns>A new <see cref="DialogResult"/>.</returns>
         public static DialogResult ShowError(string text, string caption, NotifyIcon notifyIcon, bool useNotifications)
         {
