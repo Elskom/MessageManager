@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net452;net462;net47;net472</TargetFrameworks>
+		<AssemblyName>MessageManager</AssemblyName>
+		<LangVersion>latest</LangVersion>
+		<Company>Els_kom org.</Company>
+		<Authors>Els_kom org.</Authors>
+		<PackageTags>MessageManager</PackageTags>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/Elskom/MessageManager/</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/Elskom/MessageManager/</PackageProjectUrl>
+		<PackageLicenseUrl>https://github.com/Elskom/MessageManager/blob/master/LICENSE</PackageLicenseUrl>
+		<Copyright>Copyright (c) 2018</Copyright>
+		<Description>A c# generic MessageBox manager.</Description>
+		<PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+		<Version>1.0.0</Version>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<WarningsAsErrors />
+		<OutputPath>bin\Any CPU\Debug\</OutputPath>
+		<DocumentationFile>bin\Any CPU\Debug\MessageManager.xml</DocumentationFile>
+		<DebugType>full</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<WarningsAsErrors />
+		<OutputPath>bin\Any CPU\Release\</OutputPath>
+		<DocumentationFile>bin\Any CPU\Release\MessageManager.xml</DocumentationFile>
+		<DebugType>full</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove=".gitignore" />
+		<None Remove="appveyor.yml" />
+		<None Remove="LICENSE" />
+		<None Remove="readme.md" />
+		<None Remove="stylecop.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta009">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<AdditionalFiles Include="stylecop.json" />
+	</ItemGroup>
+
+</Project>
