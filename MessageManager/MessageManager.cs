@@ -13,7 +13,6 @@ namespace Elskom.Generic.Libs
     /// </summary>
     public static class MessageManager
     {
-    
         /// <summary>
         /// Gets or sets the notification icon to use in all instances of this class.
         /// </summary>
@@ -24,16 +23,15 @@ namespace Elskom.Generic.Libs
         /// </summary>
         /// <param name="text">The text on the messagebox.</param>
         /// <param name="caption">The title of the messagebox.</param>
-        /// <param name="notifyIcon">The notification icon to use if the program is set to use Notifications instead of message boxes.</param>
         /// <param name="useNotifications">Indicates if this function should show notifications using the input notification icon.</param>
         /// <returns>A new <see cref="DialogResult"/>.</returns>
         public static DialogResult ShowError(string text, string caption, bool useNotifications)
         {
-            if (PluginUpdateCheck.NotifyIcon != null)
+            if (NotifyIcon != null)
             {
                 if (useNotifications)
                 {
-                    PluginUpdateCheck.NotifyIcon.ShowBalloonTip(0, caption, text, ToolTipIcon.Error);
+                    NotifyIcon.ShowBalloonTip(0, caption, text, ToolTipIcon.Error);
                     return DialogResult.OK;
                 }
             }
@@ -46,16 +44,15 @@ namespace Elskom.Generic.Libs
         /// </summary>
         /// <param name="text">The text on the messagebox.</param>
         /// <param name="caption">The title of the messagebox.</param>
-        /// <param name="notifyIcon">The notification icon to use if the program is set to use Notifications instead of message boxes.</param>
         /// <param name="useNotifications">Indicates if this function should show notifications using the input notification icon.</param>
         /// <returns>A new <see cref="DialogResult"/>.</returns>
-        public static DialogResult ShowInfo(string text, string caption, NotifyIcon notifyIcon, bool useNotifications)
+        public static DialogResult ShowInfo(string text, string caption, bool useNotifications)
         {
-            if (PluginUpdateCheck.NotifyIcon != null)
+            if (NotifyIcon != null)
             {
                 if (useNotifications)
                 {
-                    PluginUpdateCheck.NotifyIcon.ShowBalloonTip(0, caption, text, ToolTipIcon.Info);
+                    NotifyIcon.ShowBalloonTip(0, caption, text, ToolTipIcon.Info);
                     return DialogResult.OK;
                 }
             }
@@ -68,16 +65,15 @@ namespace Elskom.Generic.Libs
         /// </summary>
         /// <param name="text">The text on the messagebox.</param>
         /// <param name="caption">The title of the messagebox.</param>
-        /// <param name="notifyIcon">The notification icon to use if the program is set to use Notifications instead of message boxes.</param>
         /// <param name="useNotifications">Indicates if this function should show notifications using the input notification icon.</param>
         /// <returns>A new <see cref="DialogResult"/>.</returns>
-        public static DialogResult ShowWarning(string text, string caption, NotifyIcon notifyIcon, bool useNotifications)
+        public static DialogResult ShowWarning(string text, string caption, bool useNotifications)
         {
-            if (PluginUpdateCheck.NotifyIcon != null)
+            if (NotifyIcon != null)
             {
                 if (useNotifications)
                 {
-                    PluginUpdateCheck.NotifyIcon.ShowBalloonTip(0, caption, text, ToolTipIcon.Warning);
+                    NotifyIcon.ShowBalloonTip(0, caption, text, ToolTipIcon.Warning);
                     return DialogResult.OK;
                 }
             }
