@@ -13,8 +13,8 @@
 		<PackageLicenseUrl>https://github.com/Elskom/MessageManager/blob/master/LICENSE</PackageLicenseUrl>
 		<Copyright>Copyright (c) 2018</Copyright>
 		<Description>A c# generic MessageBox manager.</Description>
-		<PackageReleaseNotes>Initial release.</PackageReleaseNotes>
-		<Version>1.0.0</Version>
+		<PackageReleaseNotes>Fixed a issue where I forgot to make a couple functions as public and not internal resulting in them not getting found.</PackageReleaseNotes>
+		<Version>1.0.1</Version>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 

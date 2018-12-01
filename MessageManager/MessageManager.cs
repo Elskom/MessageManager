@@ -65,7 +65,7 @@ namespace Elskom.Generic.Libs
         /// <param name="notifyIcon">The notification icon to use if the program is set to use Notifications instead of message boxes.</param>
         /// <param name="useNotifications">Indicates if this function should show notifications using the input notification icon.</param>
         /// <returns>A new <see cref="DialogResult"/>.</returns>
-        internal static DialogResult ShowWarning(string text, string caption, NotifyIcon notifyIcon, bool useNotifications)
+        public static DialogResult ShowWarning(string text, string caption, NotifyIcon notifyIcon, bool useNotifications)
         {
             if (notifyIcon != null)
             {
@@ -85,7 +85,7 @@ namespace Elskom.Generic.Libs
         /// <param name="text">The text on the messagebox.</param>
         /// <param name="caption">The title of the messagebox.</param>
         /// <returns>A new <see cref="DialogResult"/>.</returns>
-        internal static DialogResult ShowQuestion(string text, string caption)
+        public static DialogResult ShowQuestion(string text, string caption)
             => MessageBox.Show(text, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
     }
 }
