@@ -13,8 +13,8 @@
 		<PackageLicenseUrl>https://github.com/Elskom/MessageManager/blob/master/LICENSE</PackageLicenseUrl>
 		<Copyright>Copyright (c) 2018</Copyright>
 		<Description>A c# generic MessageBox manager.</Description>
-		<PackageReleaseNotes>Fixed a issue where I forgot to make a couple functions as public and not internal resulting in them not getting found.</PackageReleaseNotes>
-		<Version>1.0.1</Version>
+		<PackageReleaseNotes>Removed notification icon arguments.</PackageReleaseNotes>
+		<Version>1.1.0</Version>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
@@ -50,6 +50,9 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
 		</PackageReference>
+        <PackageReference Include="PluginUpdateCheck">
+            <Version>1.0.0</Version>
+	    </PackageReference>
 		<Reference Include="System.Windows.Forms" />
 	</ItemGroup>
 

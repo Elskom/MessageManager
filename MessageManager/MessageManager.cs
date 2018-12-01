@@ -21,13 +21,13 @@ namespace Elskom.Generic.Libs
         /// <param name="notifyIcon">The notification icon to use if the program is set to use Notifications instead of message boxes.</param>
         /// <param name="useNotifications">Indicates if this function should show notifications using the input notification icon.</param>
         /// <returns>A new <see cref="DialogResult"/>.</returns>
-        public static DialogResult ShowError(string text, string caption, NotifyIcon notifyIcon, bool useNotifications)
+        public static DialogResult ShowError(string text, string caption, bool useNotifications)
         {
-            if (notifyIcon != null)
+            if (PluginUpdateCheck.NotifyIcon != null)
             {
                 if (useNotifications)
                 {
-                    notifyIcon.ShowBalloonTip(0, caption, text, ToolTipIcon.Error);
+                    PluginUpdateCheck.NotifyIcon.ShowBalloonTip(0, caption, text, ToolTipIcon.Error);
                     return DialogResult.OK;
                 }
             }
@@ -45,11 +45,11 @@ namespace Elskom.Generic.Libs
         /// <returns>A new <see cref="DialogResult"/>.</returns>
         public static DialogResult ShowInfo(string text, string caption, NotifyIcon notifyIcon, bool useNotifications)
         {
-            if (notifyIcon != null)
+            if (PluginUpdateCheck.NotifyIcon != null)
             {
                 if (useNotifications)
                 {
-                    notifyIcon.ShowBalloonTip(0, caption, text, ToolTipIcon.Info);
+                    PluginUpdateCheck.NotifyIcon.ShowBalloonTip(0, caption, text, ToolTipIcon.Info);
                     return DialogResult.OK;
                 }
             }
@@ -67,11 +67,11 @@ namespace Elskom.Generic.Libs
         /// <returns>A new <see cref="DialogResult"/>.</returns>
         public static DialogResult ShowWarning(string text, string caption, NotifyIcon notifyIcon, bool useNotifications)
         {
-            if (notifyIcon != null)
+            if (PluginUpdateCheck.NotifyIcon != null)
             {
                 if (useNotifications)
                 {
-                    notifyIcon.ShowBalloonTip(0, caption, text, ToolTipIcon.Warning);
+                    PluginUpdateCheck.NotifyIcon.ShowBalloonTip(0, caption, text, ToolTipIcon.Warning);
                     return DialogResult.OK;
                 }
             }
