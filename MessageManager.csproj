@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
 	<PropertyGroup>
-		<TargetFrameworks>net452;net462;net47;net472</TargetFrameworks>
+		<TargetFrameworks>netcoreapp3.0;net452;net462;net47;net472</TargetFrameworks>
 		<AssemblyName>MessageManager</AssemblyName>
 		<LangVersion>latest</LangVersion>
 		<Company>Els_kom org.</Company>
@@ -13,8 +13,8 @@
 		<PackageLicenseUrl>https://github.com/Elskom/MessageManager/blob/master/LICENSE</PackageLicenseUrl>
 		<Copyright>Copyright (c) 2018</Copyright>
 		<Description>A c# generic MessageBox manager.</Description>
-		<PackageReleaseNotes>Removed notification icon arguments.</PackageReleaseNotes>
-		<Version>1.1.0</Version>
+		<PackageReleaseNotes>Added .NET Core 3.0 to target frameworks.</PackageReleaseNotes>
+		<Version>1.1.1</Version>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
@@ -50,7 +50,7 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
 		</PackageReference>
-		<Reference Include="System.Windows.Forms" />
+		<Reference Include="System.Windows.Forms" Condition="'$(TargetFramework)' != 'netcoreapp3.0'" />
 	</ItemGroup>
 
 	<ItemGroup>
