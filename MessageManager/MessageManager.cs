@@ -14,7 +14,7 @@ namespace Elskom.Generic.Libs
     public static class MessageManager
     {
         /// <summary>
-        /// Gets or sets the notification icon to use in all instances of this class.
+        /// Gets or sets the notification icon to use in all calls to static methods in this class.
         /// </summary>
         public static NotifyIcon NotifyIcon { get; set; } = null;
 
