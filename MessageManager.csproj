@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
 	<PropertyGroup>
-		<TargetFrameworks>netcoreapp3.0;net452;net462;net47;net472</TargetFrameworks>
+		<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;netcoreapp3.0</TargetFrameworks>
 		<AssemblyName>MessageManager</AssemblyName>
 		<LangVersion>latest</LangVersion>
 		<Company>Els_kom org.</Company>
@@ -17,7 +17,24 @@
 		<Version>1.1.2</Version>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+		<PublishDocumentationFile>false</PublishDocumentationFile>
+		<NeutralLanguage>en-US</NeutralLanguage>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- Add reference binaries. -->
+		<TfmSpecificPackageFile Include="$(OutputPath)/ref/">
+			<PackagePath>ref/$(TargetFramework)</PackagePath>
+		</TfmSpecificPackageFile>
+		<!-- Add documentation file to each of the reference assembly paths. -->
+		<TfmSpecificPackageFile Include="$(OutputPath)/$(ProjectName).xml">
+			<PackagePath>ref/$(TargetFramework)</PackagePath>
+		</TfmSpecificPackageFile>
+		<!-- Add debugging symbols. -->
+		<TfmSpecificPackageFile Include="$(OutputPath)/$(ProjectName).pdb">
+			<PackagePath>lib/$(TargetFramework)</PackagePath>
+		</TfmSpecificPackageFile>
+	</ItemGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -68,6 +85,12 @@
 
 	<ItemGroup>
 		<AdditionalFiles Include="stylecop.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="MessageManager\MessageManager.resx">
+			<Generator></Generator>
+		</EmbeddedResource>
 	</ItemGroup>
 
 </Project>
