@@ -10,7 +10,7 @@
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/Elskom/MessageManager/</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/Elskom/MessageManager/</PackageProjectUrl>
-		<PackageLicenseUrl>https://github.com/Elskom/MessageManager/blob/master/LICENSE</PackageLicenseUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Copyright>Copyright (c) 2018-2019</Copyright>
 		<Description>A c# generic MessageBox manager.</Description>
 		<PackageReleaseNotes>Added reference assemblies.</PackageReleaseNotes>
@@ -50,6 +50,9 @@
 		</TfmSpecificPackageFile>
 		<TfmSpecificPackageFile Include="$(ProjectDir)/global.json">
 			<PackagePath>src/$(ProjectName)/global.json</PackagePath>
+		</TfmSpecificPackageFile>
+		<TfmSpecificPackageFile Include="$(ProjectDir)/$(ProjectName).ruleset">
+			<PackagePath>src/$(ProjectName)/$(ProjectName).ruleset</PackagePath>
 		</TfmSpecificPackageFile>
 	</ItemGroup>
 
