@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
 	<PropertyGroup>
-		<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;netcoreapp3.0</TargetFrameworks>
+		<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;netcoreapp3.0</TargetFrameworks>
 		<AssemblyName>MessageManager</AssemblyName>
 		<LangVersion>latest</LangVersion>
 		<Company>Els_kom org.</Company>
@@ -19,6 +19,7 @@
 		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
 		<PublishDocumentationFile>false</PublishDocumentationFile>
 		<NeutralLanguage>en-US</NeutralLanguage>
+		<NoWarn>$(NoWarn);NU5104;NU5118</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -33,6 +34,22 @@
 		<!-- Add debugging symbols. -->
 		<TfmSpecificPackageFile Include="$(OutputPath)/$(ProjectName).pdb">
 			<PackagePath>lib/$(TargetFramework)</PackagePath>
+		</TfmSpecificPackageFile>
+		<!-- Add source code. -->
+		<TfmSpecificPackageFile Include="$(ProjectPath)">
+			<PackagePath>src/$(ProjectName)/$(ProjectFileName)</PackagePath>
+		</TfmSpecificPackageFile>
+		<TfmSpecificPackageFile Include="$(ProjectDir)/$(ProjectName)/">
+			<PackagePath>src/$(ProjectName)/$(ProjectName)/</PackagePath>
+		</TfmSpecificPackageFile>
+		<TfmSpecificPackageFile Include="$(ProjectDir)/README.md">
+			<PackagePath>src/$(ProjectName)/README.md</PackagePath>
+		</TfmSpecificPackageFile>
+		<TfmSpecificPackageFile Include="$(ProjectDir)/stylecop.json">
+			<PackagePath>src/$(ProjectName)/stylecop.json</PackagePath>
+		</TfmSpecificPackageFile>
+		<TfmSpecificPackageFile Include="$(ProjectDir)/global.json">
+			<PackagePath>src/$(ProjectName)/global.json</PackagePath>
 		</TfmSpecificPackageFile>
 	</ItemGroup>
 
