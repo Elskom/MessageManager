@@ -88,7 +88,7 @@ namespace Elskom.Generic.Libs
             if (loader == null)
             {
                 var value = new SR();
-                Interlocked.CompareExchange(ref loader, value, null);
+                _ = Interlocked.CompareExchange(ref loader, value, null);
             }
 
             return loader;
