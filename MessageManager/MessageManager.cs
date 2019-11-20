@@ -15,11 +15,12 @@ namespace Elskom.Generic.Libs
     /// <summary>
     /// A generic MessageBox manager.
     /// </summary>
+    // Seems that if I use component; I cant customize the renderer to the menustrip.
     [DefaultProperty("Text")]
     [DefaultEvent("MouseDoubleClick")]
     [ToolboxItemFilter("MessageManager")]
     [SRDescription(SR.DescriptionMessageManager)]
-    public class MessageManager : Component
+    public class MessageManager : /*Component*/Control
     {
         private static NotifyIcon notifyIcon = null;
         private readonly object dummy = null;
@@ -126,7 +127,7 @@ namespace Elskom.Generic.Libs
         /// </summary>
         [SRCategory(SR.CatAction)]
         [SRDescription(SR.ControlOnClickDescr)]
-        public event EventHandler Click
+        public new event EventHandler Click
         {
             add
             {
@@ -152,7 +153,7 @@ namespace Elskom.Generic.Libs
         /// </summary>
         [SRCategory(SR.CatAction)]
         [SRDescription(SR.ControlOnDoubleClickDescr)]
-        public event EventHandler DoubleClick
+        public new event EventHandler DoubleClick
         {
             add
             {
@@ -178,7 +179,7 @@ namespace Elskom.Generic.Libs
         /// </summary>
         [SRCategory(SR.CatAction)]
         [SRDescription(SR.MessageManagerMouseClickDescr)]
-        public event MouseEventHandler MouseClick
+        public new event MouseEventHandler MouseClick
         {
             add
             {
@@ -205,7 +206,7 @@ namespace Elskom.Generic.Libs
         /// </summary>
         [SRCategory(SR.CatAction)]
         [SRDescription(SR.MessageManagerMouseDoubleClickDescr)]
-        public event MouseEventHandler MouseDoubleClick
+        public new event MouseEventHandler MouseDoubleClick
         {
             add
             {
@@ -232,7 +233,7 @@ namespace Elskom.Generic.Libs
         /// </summary>
         [SRCategory(SR.CatMouse)]
         [SRDescription(SR.ControlOnMouseDownDescr)]
-        public event MouseEventHandler MouseDown
+        public new event MouseEventHandler MouseDown
         {
             add
             {
@@ -259,7 +260,7 @@ namespace Elskom.Generic.Libs
         /// </summary>
         [SRCategory(SR.CatMouse)]
         [SRDescription(SR.ControlOnMouseMoveDescr)]
-        public event MouseEventHandler MouseMove
+        public new event MouseEventHandler MouseMove
         {
             add
             {
@@ -286,7 +287,7 @@ namespace Elskom.Generic.Libs
         /// </summary>
         [SRCategory(SR.CatMouse)]
         [SRDescription(SR.ControlOnMouseUpDescr)]
-        public event MouseEventHandler MouseUp
+        public new event MouseEventHandler MouseUp
         {
             add
             {
@@ -413,7 +414,7 @@ namespace Elskom.Generic.Libs
         [DefaultValue(null)]
         [SRCategory(SR.CatBehavior)]
         [SRDescription(SR.MessageManagerMenuDescr)]
-        public ContextMenu ContextMenu
+        public new ContextMenu ContextMenu
         {
             get
             {
@@ -443,7 +444,7 @@ namespace Elskom.Generic.Libs
         [DefaultValue(null)]
         [SRCategory(SR.CatBehavior)]
         [SRDescription(SR.MessageManagerMenuDescr)]
-        public ContextMenuStrip ContextMenuStrip
+        public new ContextMenuStrip ContextMenuStrip
         {
             get
             {
@@ -511,7 +512,7 @@ namespace Elskom.Generic.Libs
         [DefaultValue("")]
         [SRDescription(SR.MessageManagerTextDescr)]
         [Editor("System.ComponentModel.Design.MultilineStringEditor, " + AssemblyRef.SystemDesign, typeof(UITypeEditor))]
-        public string Text
+        public new string Text
         {
             get
             {
@@ -544,7 +545,7 @@ namespace Elskom.Generic.Libs
         [Localizable(true)]
         [DefaultValue(false)]
         [SRDescription(SR.MessageManagerVisDescr)]
-        public bool Visible
+        public new bool Visible
         {
             get
             {
@@ -577,7 +578,7 @@ namespace Elskom.Generic.Libs
         [SRDescription(SR.ControlTagDescr)]
         [DefaultValue(null)]
         [TypeConverter(typeof(StringConverter))]
-        public object Tag
+        public new object Tag
         {
             get
             {
