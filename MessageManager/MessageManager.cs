@@ -1,4 +1,4 @@
-// Copyright (c) 2018-2019, Els_kom org.
+// Copyright (c) 2018-2020, Els_kom org.
 // https://github.com/Elskom/
 // All rights reserved.
 // license: MIT, see LICENSE for more details.
@@ -404,6 +404,7 @@ namespace Elskom.Generic.Libs
             }
         }
 
+#if !NETCOREAPP3_1
         /// <summary>
         /// Gets or sets the shortcut menu for the internal icon.
         /// </summary>
@@ -434,6 +435,7 @@ namespace Elskom.Generic.Libs
                 notifyIcon.ContextMenu = value;
             }
         }
+#endif
 
         /// <summary>
         /// Gets or sets the shortcut menu associated with the internal <see cref="NotifyIcon"/>.
