@@ -78,7 +78,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <Reference Include="System.Windows.Forms" Condition="!$(TargetFramework.StartsWith('netcoreapp3.'))" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.0-beta-20204-02" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.0-beta-20206-02" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
