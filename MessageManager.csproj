@@ -11,10 +11,11 @@
     <RepositoryUrl>https://github.com/Elskom/MessageManager/</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Elskom/MessageManager/</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Copyright>Copyright (c) 2018-2019</Copyright>
+    <Copyright>Copyright (c) 2018-2020</Copyright>
     <Description>A c# generic MessageBox manager.</Description>
     <PackageReleaseNotes>Added reference assemblies.</PackageReleaseNotes>
     <Version>1.1.2</Version>
+    <Version Condition="'$(GITHUB_ACTIONS)' == 'true' AND !$(GITHUB_REF.StartsWith('refs/tags/'))">$(Version)-preview-$(GITHUB_RUN_ID)</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <PublishDocumentationFile>false</PublishDocumentationFile>
@@ -31,6 +32,8 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <!-- Optional: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
     <IncludeSymbols>true</IncludeSymbols>
+    <!-- Optional: Include source code in the symbol package (.snupkg) -->
+    <IncludeSource>true</IncludeSource>
     <IncludeBuildOutput>true</IncludeBuildOutput>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
@@ -39,22 +42,20 @@
     <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
     <OutputPath>bin\Any CPU\Debug\</OutputPath>
     <DocumentationFile>bin\Any CPU\Debug\MessageManager.xml</DocumentationFile>
-    <DebugType>full</DebugType>
+    <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\Any CPU\Release\</OutputPath>
     <DocumentationFile>bin\Any CPU\Release\MessageManager.xml</DocumentationFile>
-    <DebugType>full</DebugType>
+    <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove=".git" />
     <None Remove=".gitignore" />
-    <None Remove="appveyor.yml" />
-    <None Remove="azure-pipelines.yml" />
     <None Remove="LICENSE" />
     <None Remove="readme.md" />
     <None Remove="stylecop.json" />
@@ -69,7 +70,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0-beta1.20255.4">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -77,7 +78,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <Reference Include="System.Windows.Forms" Condition="!$(TargetFramework.StartsWith('netcoreapp3.'))" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.0-beta-20225-02" PrivateAssets="All" />
     <PackageReference Condition="!$(TargetFramework.StartsWith('netcoreapp')) AND !$(TargetFramework.StartsWith('netstandard'))" Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" IncludeAssets="runtime; build; native; contentfiles; analyzers" />
   </ItemGroup>
@@ -92,13 +92,13 @@
     </EmbeddedResource>
   </ItemGroup>
 
-  <ItemGroup Condition="Exists('..\GitInformation\src\GitInformation\AraHaan.GitInformation.csproj')">
+  <ItemGroup Condition="Exists('..\GitInformation\src\GitInformation\AraHaan.GitInformation.csproj') AND '$(SolutionName)' == 'build_all_packages'">
     <ProjectReference Include="..\GitInformation\src\GitInformation\AraHaan.GitInformation.csproj" />
   </ItemGroup>
 
-  <ItemGroup Condition="!Exists('..\GitInformation\src\GitInformation\AraHaan.GitInformation.csproj')">
+  <ItemGroup Condition="!Exists('..\GitInformation\src\GitInformation\AraHaan.GitInformation.csproj') OR '$(SolutionName)' != 'build_all_packages'">
     <PackageReference Include="AraHaan.GitInformation">
-      <Version>1.0.1</Version>
+      <Version>1.0.2-preview-97172757</Version>
     </PackageReference>
   </ItemGroup>
 

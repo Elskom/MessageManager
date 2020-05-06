@@ -22,7 +22,7 @@ namespace Elskom.Generic.Libs
     [SRDescription(SR.DescriptionMessageManager)]
     public class MessageManager : /*Component*/Control
     {
-        private static NotifyIcon notifyIcon = null;
+        private static NotifyIcon notifyIcon;
         private readonly object dummy = null;
 
         /// <summary>
@@ -318,7 +318,7 @@ namespace Elskom.Generic.Libs
         [Localizable(true)]
         [DefaultValue("")]
         [SRDescription(SR.MessageManagerBalloonTipTextDescr)]
-        [Editor("System.ComponentModel.Design.MultilineStringEditor, " + AssemblyRef.SystemDesign, typeof(UITypeEditor))]
+        [Editor("System.ComponentModel.Design.MultilineStringEditor, " + AssemblyRef.SYSTEMDESIGN, typeof(UITypeEditor))]
         public string BalloonTipText
         {
             get
@@ -513,7 +513,7 @@ namespace Elskom.Generic.Libs
         [Localizable(true)]
         [DefaultValue("")]
         [SRDescription(SR.MessageManagerTextDescr)]
-        [Editor("System.ComponentModel.Design.MultilineStringEditor, " + AssemblyRef.SystemDesign, typeof(UITypeEditor))]
+        [Editor("System.ComponentModel.Design.MultilineStringEditor, " + AssemblyRef.SYSTEMDESIGN, typeof(UITypeEditor))]
         public new string Text
         {
             get
