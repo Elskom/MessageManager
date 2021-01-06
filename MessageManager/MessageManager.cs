@@ -23,7 +23,7 @@ namespace Elskom.Generic.Libs
     public class MessageManager : /*Component*/Control
     {
         private static NotifyIcon notifyIcon;
-        private readonly object dummy = null;
+        private readonly object dummy;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MessageManager"/> class.
